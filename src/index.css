@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* PlayPathshaala Color Palette - Vibrant & Joyful */
+    --background: 45 100% 98%; /* Warm cream background */
+    --foreground: 220 15% 20%; /* Deep charcoal for text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Primary - Vibrant Indian Green */
+    --primary: 140 65% 45%; /* Forest green for trust & growth */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 140 70% 55%;
+
+    /* Secondary - Warm Saffron Orange */
+    --secondary: 35 95% 60%; /* Indian saffron */
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent - Royal Blue */
+    --accent: 210 85% 55%; /* Bright sky blue */
+    --accent-foreground: 0 0% 100%;
+
+    /* Joy - Sunshine Yellow */
+    --joy: 50 100% 65%; /* Bright yellow for happiness */
+    --joy-foreground: 220 15% 20%;
+
+    --muted: 45 40% 92%;
+    --muted-foreground: 220 15% 50%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 25% 88%;
+    --input: 45 25% 94%;
+    --ring: 140 65% 45%;
+
+    /* Design System Extensions */
+    --radius: 1rem; /* Rounded for playfulness */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--joy)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-medium: 0 8px 30px -6px hsl(var(--primary) / 0.2);
+    --shadow-strong: 0 20px 40px -12px hsl(var(--primary) / 0.25);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 45 100% 95%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 45 100% 95%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 45 100% 95%;
+
+    --primary: 140 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 140 75% 65%;
+
+    --secondary: 35 90% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 210 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --joy: 50 95% 70%;
+    --joy-foreground: 220 15% 20%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 45 20% 65%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 15%;
+    --ring: 140 70% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-medium;
+    font-family: 'Inter', 'Poppins', sans-serif;
+  }
+
+  /* Playful animations */
+  .bounce-in {
+    animation: bounceIn 0.6s var(--bounce);
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite alternate;
+  }
+
+  /* Star particle animations */
+  .star-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  @keyframes bounceIn {
+    0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+    50% { transform: scale(1.05) rotate(5deg); }
+    70% { transform: scale(0.9) rotate(-2deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glowPulse {
+    0% { box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.4); }
+    100% { box-shadow: 0 0 40px hsl(var(--primary-glow) / 0.8), 0 0 60px hsl(var(--primary-glow) / 0.3); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+  }
+}
